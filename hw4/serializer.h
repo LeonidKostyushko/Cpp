@@ -31,9 +31,9 @@ Error operator()(ArgsT&&... args)
 
 private:
 template <class T, class... ArgsT>
-Error process(const T& value, ArgsT&&... args)
+Error process(T&& value, ArgsT&&... args)
 {
-	save(value);
+	save(std::forward<T>(value));
 	out << Separator;
 
 	return process(std::forward<ArgsT>(args)...);
@@ -80,9 +80,9 @@ Error operator()(ArgsT&&... args)
 
 private:
 template <class T,class...ArgsT>
-Error process(T& value, ArgsT&&	...args)
+Error process(T&& value, ArgsT&&	...args)
 {
-	if (load(value) == false) return Error::CorruptedArchive;
+	if (load(std::forward<T>(value)) == false) return Error::CorruptedArchive;
 
 	return process(std::forward<ArgsT>(args)...);
 }
