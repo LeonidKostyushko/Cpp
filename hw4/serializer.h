@@ -80,7 +80,7 @@ class Deserializer
 
 	private:
 	template <class T,class...ArgsT>
-	Error process(T&& value, ArgsT&&	...args)
+	Error process(T&& value, ArgsT&&...args)
 	{
 		if (load(std::forward<T>(value)) == false) return Error::CorruptedArchive;
 
