@@ -121,7 +121,7 @@ class Deserializer
 			if (line[0] == '-') return false;
 			value = std::stoull(line);
 		}
-		catch (std::invalid_argument)
+		catch (std::exception &e)
 		{
 			return false;
 		}
