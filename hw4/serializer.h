@@ -3,19 +3,19 @@
 
 enum class Error
 {
-NoError,
-CorruptedArchive
+	NoError,
+	CorruptedArchive
 };
 
 class Serializer
 {
-std::ostream& out;
-static constexpr char Separator = ' ';
-public:
-explicit Serializer(std::ostream& out_)
-	: out(out_)
-{
-}
+	std::ostream& out;
+	static constexpr char Separator = ' ';
+	public:
+	explicit Serializer(std::ostream& out_)
+		: out(out_)
+	{
+	}
 
 template <class T>
 Error save(T& object)
@@ -40,9 +40,9 @@ Error process(T&& value, ArgsT&&... args)
 }
 
 template <class T>
-Error process(T value)
+Error process(T&& value)
 {
-	save(value);
+	save(std::forward<T>(value));
 	return Error::NoError;
 }
 
@@ -88,9 +88,9 @@ Error process(T&& value, ArgsT&&	...args)
 }
 
 template <class T>
-Error process(T& value)
+Error process(T&& value)
 {
-	if (load(value) == false)  return Error::CorruptedArchive;
+	if (load(std::forward<T>(value)) == false)  return Error::CorruptedArchive;
 
 	return Error::NoError;
 }
