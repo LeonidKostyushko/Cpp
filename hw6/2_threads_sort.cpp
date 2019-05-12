@@ -25,7 +25,8 @@ void sort(uint64_t& val, uint64_t& tmp, FILE* out, FILE* in)
 }
 
 
-void my_mergefile(std::string file1, std::string file2, std::string out_file) {
+void my_mergefile(std::string file1, std::string file2, std::string out_file) 
+{
 	FILE* out = fopen(out_file.c_str(), "wb");
 	FILE* left = fopen(file1.c_str(), "rb");
 	FILE* right = fopen(file2.c_str(), "rb");
@@ -51,7 +52,8 @@ void my_mergefile(std::string file1, std::string file2, std::string out_file) {
 	fclose(right);
 }
 
-std::string my_mergesort(const int& step, const uint64_t& left,const uint64_t& right) {
+std::string my_mergesort(const int& step, const uint64_t& left,const uint64_t& right) 
+{
 	
 	if (left != right) 
 	{
@@ -62,6 +64,7 @@ std::string my_mergesort(const int& step, const uint64_t& left,const uint64_t& r
 		my_mergefile(file1, file2, out_file);
 		return out_file;
 	}
+
 	else 
 	{
 		std::string out_file = std::string(std::to_string(step) + "_" + std::to_string(left) + '_' + std::to_string(right));
