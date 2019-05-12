@@ -77,7 +77,7 @@ std::string my_mergesort(const int& step, const uint64_t& left,const uint64_t& r
 	}
 }
 
-int main(int argc, char **argv)
+int main()
 {
 	uint64_t size = file_size(input);
 	std::string file1 = std::string("0_0_" + std::to_string((size - 1) / 2));
