@@ -21,7 +21,7 @@ void conc(const string &f_1, const string &f_2, const string &conc)
 	ofstream res(conc, std::ios::binary);
 	if (!f1.is_open() || !f2.is_open() || !res.is_open())
 	{
-		cout << "Файл не может быть открыт!" << endl;
+		cout << "File open error!" << endl;
 	}
 	else 
 	{
@@ -62,7 +62,7 @@ vector<uint64_t> read_numbers(ifstream &file, int amount)
 	uint64_t tmp;
 	if (!file.is_open())
 	{
-		cout << "Файл не может быть открыт!" << endl;
+		cout << "File open error!" << endl;
 	}
 	else
 	{
@@ -85,9 +85,10 @@ void p_sort(ifstream &file, mutex &mtx)
 	ss << thread_id << "_";
 	if (!file.is_open())
 	{
-		cout << "Файл не может быть открыт!" << endl;
+		cout << "File open error!" << endl;
 	}
-	else {
+	else 
+	{
 		while (!file.eof())
 		{
 			unique_lock<std::mutex> lock(mtx);
@@ -140,7 +141,7 @@ int main(int argc, char **argv)
 	ifstream file(filename, ios::binary);
 	if (!file.is_open())
 	{
-		cout << "Файл не может быть открыт!" << endl;
+		cout << "File open error!" << endl;
 		return 0;
 	}
 	mutex mtx;
