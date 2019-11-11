@@ -1,0 +1,6 @@
+﻿  Calculator.cpp
+c:\users\леонид\source\repos\calculator\calculator\calculator.cpp(36): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\леонид\source\repos\calculator\calculator\calculator.cpp(44): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\леонид\source\repos\calculator\calculator\calculator.cpp(73): warning C4018: <: несоответствие типов со знаком и без знака
+  Calculator.vcxproj -> C:\Users\Леонид\source\repos\Calculator\Debug\Calculator.exe
+  Calculator.vcxproj -> C:\Users\Леонид\source\repos\Calculator\Debug\Calculator.pdb (Partial PDB)
